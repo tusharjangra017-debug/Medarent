@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Prescription</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .container{
+      text-align:center;
+      padding:40px;
+    }
+
+    input{
+      margin:20px;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:20px;
+      background:#28a745;
+      color:white;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Upload Prescription 📸</h2>
+
+  <input type="file" id="fileInput">
+  <br>
+
+  <button onclick="uploadFile()">Upload</button>
+
+  <p id="status"></p>
+
+  <button onclick="goHome()">⬅ Back</button>
+</div>
+
+<script>
+function uploadFile(){
+  const file = document.getElementById("fileInput").files[0];
+
+  if(!file){
+    alert("Please select a file");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("prescription", file);
+
+  fetch("http://localhost:3000/api/upload", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("status").innerText =
+      "Uploaded successfully ✅";
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Upload failed ❌");
+  });
+}
+
+function goHome(){
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

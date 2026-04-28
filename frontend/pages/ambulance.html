@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ambulance - MEDARENT</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="ambulance-container">
+
+  <h2>🚑 Emergency Ambulance</h2>
+
+  <p class="emergency-text">Need urgent help? Call immediately</p>
+
+  <!-- CALL BUTTON -->
+  <a href="tel:102" class="call-btn">📞 Call Ambulance</a>
+
+  <h3>OR Request Pickup</h3>
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="text" id="location" placeholder="Your Location">
+
+  <button onclick="requestAmbulance()">Request Ambulance 🚑</button>
+
+</div>
+
+<!-- <script>
+function requestAmbulance() {
+  let name = document.getElementById("name").value;
+  let location = document.getElementById("location").value;
+
+  if (!name || !location) {
+    // alert("Please fill all details!");
+    return;
+  }
+
+  alert("🚑 Ambulance is on the way!");
+  // showAmbulancePopup();
+}
+</script> -->
+
+<script>
+function goAmbulance() {
+    window.location.href = "ambulance2.html";
+}
+
+function requestAmbulance() {
+    window.location.href = "ambulance2.html";
+}
+</script>
+
+</body>
+</html>

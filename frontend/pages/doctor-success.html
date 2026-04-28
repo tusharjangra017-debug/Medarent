@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="doctor-container">
+
+  <h2>✅ Appointment Confirmed</h2>
+
+  <p id="details"></p>
+
+  <button onclick="goHome()">Go Home</button>
+
+</div>
+
+<script>
+let data = JSON.parse(localStorage.getItem("appointment"));
+
+if (data) {
+  document.getElementById("details").innerText =
+    `${data.doctor} | ${data.date} at ${data.time}`;
+}
+
+function goHome() {
+  window.location.href = "../index.html";
+}
+</script>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

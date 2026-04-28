@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You Donor - MEDARENT</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f7f9;
+      font-family: Arial;
+    }
+
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 420px;
+    }
+
+    h1 {
+      color: #dc2626;
+    }
+
+    .quote {
+      margin-top: 15px;
+      color: #555;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 10px 20px;
+      border: none;
+      background: #16a34a;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>❤️ Thank You, Hero!</h1>
+  <p>You have registered as a blood donor 🙏</p>
+
+  <p class="quote">
+    "Your one step can save someone's entire life.  
+    You are not just a donor, you are a lifesaver ❤️"
+  </p>
+
+  <button onclick="goBack()">Back</button>
+</div>
+
+<script>
+function goBack() {
+  window.location.href = "blood.html";
+}
+</script>
+
+</body>
+</html>

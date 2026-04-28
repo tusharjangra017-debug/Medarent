@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctors</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<h2 style="text-align:center;">👨‍⚕️ Choose Doctor</h2>
+
+<div class="doctor-list">
+
+  <div class="doctor-card">
+    <h3>Dr. Sharma</h3>
+    <p>General Physician</p>
+    <button onclick="selectDoctor('Dr. Sharma', 'General')">Book</button>
+  </div>
+
+  <div class="doctor-card">
+    <h3>Dr. Mehta</h3>
+    <p>Cardiologist</p>
+    <button onclick="selectDoctor('Dr. Mehta', 'Cardio')">Book</button>
+  </div>
+
+  <div class="doctor-card">
+    <h3>Dr. Gupta</h3>
+    <p>Dentist</p>
+    <button onclick="selectDoctor('Dr. Gupta', 'Dentist')">Book</button>
+  </div>
+
+</div>
+
+<script>
+function selectDoctor(name, type) {
+  localStorage.setItem("selectedDoctor", JSON.stringify({name, type}));
+window.location.href = "./doctor-book.html";
+}
+</script>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

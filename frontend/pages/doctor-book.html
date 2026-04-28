@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="doctor-container">
+
+  <h2 id="doctorName"></h2>
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="number" id="phone" placeholder="Phone Number">
+
+  <input type="date" id="date">
+  <input type="time" id="time">
+
+  <button onclick="bookAppointment()">Confirm Booking</button>
+
+</div>
+
+<script>
+let doctor = JSON.parse(localStorage.getItem("selectedDoctor"));
+
+if (doctor) {
+  document.getElementById("doctorName").innerText =
+    doctor.name + " (" + doctor.type + ")";
+}
+
+function bookAppointment() {
+  let data = {
+    doctor: doctor.name,
+    date: document.getElementById("date").value,
+    time: document.getElementById("time").value
+  };
+
+  localStorage.setItem("appointment", JSON.stringify(data));
+
+  window.location.href = "doctor-success.html";
+}
+</script>
+
+</body>
+</html>

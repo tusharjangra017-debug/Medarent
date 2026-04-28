@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MEDARENT</title>
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+<header class="header">
+  <h1 class="logo">MEDARENT</h1>
+
+  <input type="text" placeholder="Search medicines..." class="search-bar" onkeyup="searchMedicines()">
+
+  <div class="header-buttons">
+    <!-- <button onclick="goToCart()">Orders</button> -->
+    <button onclick="goUpload()">Upload</button>
+    <button onclick="goOrders()">Orders</button>
+    <div class="cart-icon" onclick="goToCart()">
+      🛒
+      <span id="cartCount" class="cart-badge"></span>
+    </div>
+  </div>
+</header>
+
+
+
+<section class="banner">
+  <h2>Medicines Delivered in 10 Minutes 🚑</h2>
+  <p>Fast, reliable delivery like parents ❤️</p>
+</section>
+
+
+
+<div class="feature-bar">
+
+<div onclick="goHome()">🏠 Home</div>
+<div onclick="scrollToMedicines()">💊 Order Medicine</div>
+<div onclick="goUpload()">📄 Upload Prescription</div>
+<div onclick="goDoctor()">👨‍⚕️ Doctor Booking</div>
+<div onclick="goBlood()">🩸 Blood Request</div>
+ <div onclick="goAiadvisor()">Ai advisor</div>
+<div onclick="goReminder()">⏰ Reminder</div>
+
+
+
+</div>
+
+<section class="products-section">
+
+  <h2 class="section-title">Medicines</h2>
+
+  <div class="category-buttons">
+    <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
+    <button class="cat-btn" onclick="filterCategory('fever', this)">Fever</button>
+    <button class="cat-btn" onclick="filterCategory('pain', this)">Pain</button>
+    <button class="cat-btn" onclick="filterCategory('cold', this)">Cold</button>
+  </div>
+
+  <!-- EMPTY (JS WILL FILL THIS) -->
+  <div id="medicineContainer" class="product-grid"></div>
+
+</section>
+
+<!-- <section class="products-section">
+
+  <h2 class="section-title">Medicines</h2>
+
+  
+<div class="category-buttons">
+  <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
+  <button class="cat-btn" onclick="filterCategory('fever', this)">Fever</button>
+  <button class="cat-btn" onclick="filterCategory('pain', this)">Pain</button>
+  <button class="cat-btn" onclick="filterCategory('cold', this)">Cold</button>
+</div>
+
+ 
+<div id="medicineContainer" class="product-grid">
+
+  <div class="product-card" data-name="paracetamol" data-category="fever">
+  <h3>Paracetamol 500mg</h3>
+  <p>₹50</p>
+  <button onclick="addToCart('Paracetamol 500mg', 50)">Add</button>
+</div>
+
+<div class="product-card" data-name="dolo" data-category="fever">
+  <h3>Dolo 650</h3>
+  <p>₹60</p>
+  <button onclick="addToCart('Dolo 650', 60)">Add</button>
+</div>
+
+<div class="product-card" data-name="crocin" data-category="fever">
+  <h3>Crocin</h3>
+  <p>₹55</p>
+  <button onclick="addToCart('Crocin', 55)">Add</button>
+</div>
+
+<div class="product-card" data-name="cough" data-category="cold">
+  <h3>Cough Syrup</h3>
+  <p>₹120</p>
+  <button onclick="addToCart('Cough Syrup', 120)">Add</button>
+</div>
+
+<div class="product-card" data-name="pain" data-category="pain">
+  <h3>Pain Relief Spray</h3>
+  <p>₹180</p>
+  <button onclick="addToCart('Pain Relief', 180)">Add</button>
+</div>
+
+<div class="product-card" data-name="vitamin" data-category="cold">
+  <h3>Vitamin C Tablets</h3>
+  <p>₹150</p>
+  <button onclick="addToCart('Vitamin C Tablets', 150)">Add</button>
+</div>
+
+<div class="product-card" data-name="ibuprofen" data-category="pain">
+  <h3>Ibuprofen Tablets</h3>
+  <p>₹90</p>
+  <button onclick="addToCart('Ibuprofen Tablets', 90)">Add</button>
+</div>
+
+<div class="product-card" data-name="sanitizer" data-category="all">
+  <h3>Hand Sanitizer</h3>
+  <p>₹90</p>
+  <button onclick="addToCart('Hand Sanitizer', 90)">Add</button>
+</div>
+  Fever -->
+
+  </div>
+
+<p id="noResult" style="display:none; text-align:center;">
+  ❌ No medicines found
+</p>
+
+</section>
+<section class="help-section">
+  <h3>Need Help?</h3>
+  <p>Call us: +91 98765 43210</p>
+  <p>Available 24/7</p>
+</section>
+
+
+<script src="js/medicines.js"></script>
+<!-- <script src="../js/app.js"></script> -->
+ <script src="js/app.js"></script>
+
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<div class="ambulance-wrapper" onclick="goAmbulance()">
+  <div class="ambulance-btn">🚑</div>
+  <span class="ambulance-text">Emergency</span>
+</div>
+
+<!-- <script>
+loadMedicines();
+</script> -->
+
+
+<div id="ambulancePopup" class="popup">
+  <div class="popup-box">
+    
+    <div class="ambulance-icon">🚑</div>
+    
+    <h2>Ambulance On The Way</h2>
+    <p>Your emergency request is accepted. Help is arriving!</p>
+
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+
+    <button onclick="closeAmbulancePopup()">OK</button>
+  </div>
+</div>
+</body>
+</html>
+
+

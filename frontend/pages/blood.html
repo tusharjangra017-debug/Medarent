@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Finder - MEDARENT</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+  <div class="blood-container">
+
+    <h2>🩸 Blood Finder</h2>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('find')">Find</button>
+      <button class="tab" onclick="showTab('donate')">Donate</button>
+    </div>
+
+    <!-- FIND SECTION -->
+    <div id="findSection">
+
+      <div class="search-box">
+        <select id="bloodGroup">
+          <option value="">Select Blood Group</option>
+          <option>A+</option>
+          <option>B+</option>
+          <option>O+</option>
+          <option>AB+</option>
+          <option>A-</option>
+          <option>B-</option>
+          <option>O-</option>
+          <option>AB-</option>
+        </select>
+
+        <button onclick="searchDonors()">Search</button>
+      </div>
+
+      <div id="donorResults"></div>
+
+    </div>
+
+    <!-- DONATE SECTION -->
+    <div id="donateSection" class="donate-box" style="display:none;">
+
+      <input type="text" id="donorName" placeholder="👤 Your Name">
+      <input type="text" id="donorPhone" placeholder="📞 Phone Number">
+      <input type="text" id="donorCity" placeholder="📍 Your City">
+      <select id="donorGroup">
+        <option value="">🩸 Select Blood Group</option>
+        <option>A+</option>
+        <option>B+</option>
+        <option>O+</option>
+        <option>AB+</option>
+        <option>A-</option>
+        <option>B-</option>
+        <option>O-</option>
+        <option>AB-</option>
+      </select>
+
+      <button onclick="registerDonor()">❤️ Register</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="../js/app.js"></script>
+
+</body>
+</html>

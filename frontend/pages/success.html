@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Success - MEDARENT</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="success-wrapper">
+
+  <div class="success-card">
+
+    <h1>🎉 Order Confirmed</h1>
+    <p class="subtitle">Your medicines are on the way 🚑</p>
+    <p class="quote">
+  "Medicines heal the body, but care heals the heart.  
+  Thank you for trusting Medarent ❤️"
+</p>
+    <!-- USER DETAILS -->
+    <div class="info-box">
+      <p><b>Name:</b> <span id="name"></span></p>
+      <p><b>Phone:</b> <span id="phone"></span></p>
+      <p><b>Address:</b> <span id="address"></span></p>
+    </div>
+
+    <!-- ITEMS -->
+    <div class="items-box">
+      <h3>🧾 Order Items</h3>
+      <div id="items"></div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="actions">
+      <button onclick="goHome()">🏠 Go Home</button>
+       <button onclick="goTracking()">Track Order 🚚</button>
+      <button onclick="goOrders()">📦 View Orders</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+let order = JSON.parse(localStorage.getItem("lastOrder"));
+
+if (order) {
+  document.getElementById("name").innerText = order.name;
+  document.getElementById("phone").innerText = order.phone;
+  document.getElementById("address").innerText = order.address;
+
+  let itemsHTML = "";
+  order.cart.forEach(item => {
+    itemsHTML += `
+      <div class="item-row">
+        <span>${item.name}</span>
+        <span>x${item.qty}</span>
+      </div>
+    `;
+  });
+
+  document.getElementById("items").innerHTML = itemsHTML;
+}
+
+function goHome() {
+  window.location.href = "../index.html";
+}
+
+function goOrders() {
+  window.location.href = "orders.html";
+}
+function goTracking() {
+  window.location.href = "tracking.html";
+}
+</script>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

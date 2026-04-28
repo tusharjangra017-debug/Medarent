@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medicine Reminder</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="reminder-container">
+
+  <h2>⏰ Medicine Reminder</h2>
+
+  <div class="reminder-box">
+    <input id="medName" placeholder="💊 Medicine Name">
+    <input type="time" id="medTime">
+    <button onclick="addReminder()">Add</button>
+  </div>
+
+  <div id="reminderList"></div>
+
+</div>
+
+<!-- Notification popup -->
+<div id="notifyBox" class="notify-box"></div>
+
+<script src="../js/app.js"></script>
+
+<script>
+  // Auto fill selected medicine
+  const selected = localStorage.getItem("selectedMedicine");
+  if (selected) {
+    document.getElementById("medName").value = selected;
+  }
+
+  loadReminders();
+</script>
+
+<audio id="alarmSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"></audio>
+
+</body>
+</html>

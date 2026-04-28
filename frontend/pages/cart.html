@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="cart-container">
+
+  <h2 class="cart-title">🛒 Your Cart</h2>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-summary">
+    <h3 id="totalAmount">Total ₹0</h3>
+    <button class="checkout-btn" onclick="goCheckout()">Proceed to Checkout</button>
+  </div>
+
+</div>
+
+<script src="../js/app.js"></script>
+
+<script>
+function loadCartUI() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let container = document.getElementById("cartItems");
+  let totalBox = document.getElementById("totalAmount");
+
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+
+    container.innerHTML += `
+      <div class="cart-card">
+        <div>
+          <h3>${item.name}</h3>
+          <p>₹${item.price}</p>
+        </div>
+
+        <div class="qty-controls">
+          <button onclick="changeQty(${index}, -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty(${index}, 1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+
+  totalBox.innerText = "Total ₹" + total;
+}
+
+function changeQty(index, change) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart[index].qty += change;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCartUI();
+}
+
+loadCartUI();
+</script>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Cart</h2>
+<div id="cartItems"></div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let box = document.getElementById("cartItems");
+
+cart.forEach(item => {
+  box.innerHTML += `<p>${item.name} x ${item.qty}</p>`;
+});
+</script>
+
+</body>
+</html>
+

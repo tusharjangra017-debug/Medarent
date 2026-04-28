@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ambulance Tracking</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e63946;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    .driver-card {
+      background: #f1f3f6;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .driver-card p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    .call-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .call-btn:hover {
+      background: #d62828;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 60%;
+      background: #2a9d8f;
+      animation: move 3s infinite;
+    }
+
+    @keyframes move {
+      0% { width: 20%; }
+      50% { width: 70%; }
+      100% { width: 40%; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="title">🚑 Ambulance Assigned</div>
+  <div class="status">Connecting...</div>
+
+  <div class="driver-card">
+    <p><strong>Driver:</strong> Rajesh Kumar</p>
+    <p><strong>Phone:</strong> 9876543210</p>
+    <p><strong>Vehicle:</strong> HR 20 AB 1234</p>
+  </div>
+
+  <button class="call-btn" onclick="callDriver()">📞 Call Driver</button>
+
+  <div class="progress-bar">
+    <div class="progress"></div>
+  </div>
+
+</div>
+
+<script>
+function callDriver() {
+  window.location.href = "tel:9876543210";
+}
+</script>
+
+</body>
+</html>
