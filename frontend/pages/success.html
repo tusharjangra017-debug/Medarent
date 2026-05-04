@@ -82,5 +82,26 @@ function goTracking() {
   </div>
 </div>
 
+<script>
+const items = JSON.parse(localStorage.getItem("orderItems"));
+const container = document.getElementById("order-items");
+
+if (!items || items.length === 0) {
+    container.innerHTML = "<p>No items found</p>";
+} else {
+    items.forEach(item => {
+        const div = document.createElement("div");
+        div.style.marginBottom = "10px";
+
+        div.innerHTML = `
+            <b>${item.name}</b><br>
+            Price: ₹${item.price} <br>
+            Quantity: ${item.quantity}
+        `;
+
+        container.appendChild(div);
+    });
+  }
+</script>
 </body>
 </html>

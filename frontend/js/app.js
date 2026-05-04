@@ -402,7 +402,7 @@ function placeOrder() {
   });
   message += `\n👉 Please confirm this order`;
   // 👉 YOUR NUMBER HERE
-  let phoneNumber = "7905014086";
+  let phoneNumber = "9728373333";
 
   let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -413,7 +413,11 @@ function placeOrder() {
   localStorage.removeItem("cart");
 
   // ✅ REDIRECT TO SUCCESS PAGE
-  window.location.href = "success.html";
+  // Save cart before redirect
+localStorage.setItem("orderItems", JSON.stringify(cart));
+
+// Then redirect
+window.location.href = "success.html";
 }
 
 // window.onload = function () {
